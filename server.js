@@ -35,8 +35,8 @@ const __dirname = path.dirname(__filename);
 // Serve built React app
 app.use(express.static(path.join(__dirname, "../client/dist/spa")));
 
-// Catch-all route → React handles frontend routing
-app.get("*", (req, res) => {
+// ✅ Express 5 catch-all route → use "/*"
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/dist/spa/index.html"));
 });
 
